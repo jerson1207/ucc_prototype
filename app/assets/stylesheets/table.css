@@ -1,0 +1,36 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  display: block;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  position: sticky;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.table-container {
+	width: 100%; 
+}
+
+.fixed-table {
+	border-collapse: collapse;
+	width: 100%; 
+  overflow: auto;
+  
+}
+
+.scroll{
+  width: 100%;
+  height: 95%;
+  overflow: auto;
+}

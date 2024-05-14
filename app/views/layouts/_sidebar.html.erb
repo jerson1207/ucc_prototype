@@ -1,0 +1,23 @@
+<section id="sidebar">
+  <a href="#" class="brand"><i class='bx bxs-smile icon'></i>UCC</a>
+  <ul class="side-menu">
+    <li><%= content_tag :li, class: "link" do %>
+          <%= link_to root_path, class: "active" do %>
+            <i class='fas fa-chart-column icon'></i> Dashboard 
+          <% end %>
+        <% end %></li>
+    <li class="divider" data-text="main">Main</li>
+    <li>
+      <%= link_to inventory_files_datasets_path, class: "link", data: { action: "click->sidebar#dropdown" } do %>
+            <i class="fas fa-database icon"></i>Datasets
+          <% end %>
+      <ul class="side-dropdown show">
+        <li><%= link_to "Inventory", inventory_files_datasets_path, class: "active" %></li>
+        <li><%= link_to "QC", qc_files_datasets_path, class: "active" %></li>
+      </ul>
+    </li>
+    <li><%= link_to uploads_path, class:"link" do %>
+            <i class="icon fas fa-upload"></i> Uploads
+          <% end %></li>
+  </ul>
+</section>

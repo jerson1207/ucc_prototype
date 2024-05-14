@@ -1,0 +1,87 @@
+<div class='upload-container card-design'>
+<div class="head">
+  <h2><%= link_to uploads_path do %>
+    <span class="circle-left-icon" title="go back">
+      <i class="fas fa-circle-left"></i>
+    </span>
+  <% end %><%= @filename%> </h2>
+</div>
+
+<div class='scroll'>
+  <table >
+    <thead>
+      <tr>
+        <th>Shipment</th>
+        <th>Date Received</th>
+        <th>Type</th>
+        <th>State Code</th>
+        <th>Rider No</th>
+        <th>Coverage Date-From</th>
+        <th>Coverage Date-to</th>
+        <th>Volume</th>
+        <th>Index Unit</th>
+        <th>Index Date</th>
+        <th>Blank Party-Unit</th>
+        <th>Blank Party-Date</th>
+        <th>Colateral-unit</th>
+        <th>Colateral-date</th>
+        <th>Special-Unit</th>
+        <th>Special-Date</th>
+        <th>Tax Lien-Unit</th>
+        <th>Tax Lien-Date</th>
+        <th>Frame Scanned-Unit</th>
+        <th>Frame Scanned-Date</th>
+        <th>MDB-Unit</th>
+        <th>MDB-Date</th>
+        <th>Office Product-Unit</th>
+        <th>Office Product-Date</th>
+        <th>TAT-Index</th>
+        <th>TAT-Blank Party</th>
+        <th>TAT-Collateral</th>
+        <th>TAT-Special</th>
+        <th>TAT-Tax Lien</th>
+        <th>TAT-MDB</th>
+        <th>TAT-Office Product</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @data.each do |row| %>
+        <tr>
+          <td><%= row['shipment'] %></td>
+          <td><%= row['date_received'] %></td>
+          <td><%= row['type'] %></td>
+          <td><%= row['state_code'] %></td>
+          <td><%= row['rider_no'] %></td>
+          <td><%= row['coverage_date-from'] %></td>
+          <td><%= row['coverage_date-to'] %></td>
+          <td><%= row['volume'] %></td>
+          <td><%= row['index-unit'] %></td>
+          <td><%= row['index-date'] %></td>
+          <td><%= row['blank_party-unit'] %></td>
+          <td><%= row['blank_party-date'] %></td>
+          <td><%= row['colateral-unit'] %></td>
+          <td><%= row['colateral-date'] %></td>
+          <td><%= row['special-unit'] %></td>
+          <td><%= row['special-date'] %></td>
+          <td><%= row['tax_lien-unit'] %></td>
+          <td><%= row['tax_lien-date'] %></td>
+          <td><%= row['frame_scanned-unit'] %></td>
+          <td><%= row['frame_scanned-date'] %></td>
+          <td><%= row['mdb-unit'] %></td>
+          <td><%= row['mdb-date'] %></td>
+          <td><%= row['office_product-unit'] %></td>
+          <td><%= row['office_product-date'] %></td>
+          <td><%= row['tat-index'] %></td>
+          <td><%= row['tat-blank_party'] %></td>
+          <td><%= row['tat-collateral'] %></td>
+          <td><%= row['tat-special'] %></td>
+          <td><%= row['tat-tax_lien'] %></td>
+          <td><%= row['tat-mdb'] %></td>
+          <td><%= row['tat-office_product'] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>
+

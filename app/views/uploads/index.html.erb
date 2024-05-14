@@ -1,0 +1,97 @@
+<% flash.each do |key, value| %>
+  <div class="notification <%= key %>" data-controller="notification">
+    <% if key == 'error' %>
+      <i class="fas fa-exclamation-triangle"></i>
+    <% end %>
+    <%= value %>
+    <button class="close-btn" data-action="notification#close">&times;</button>
+  </div>
+<% end %>
+
+<div class="data">
+  <div class="content-data inventory">
+    <div class='left-card'>
+      <h3>Inventory Files</h3>
+      <table class="uploaded-files-table">
+        <thead>
+          <tr>
+            <th>File Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @files.each do |file| %>
+            <tr>
+              <td><%= link_to file, show_inventory_file_upload_path(filename_without_extension(file)) %> </td>
+              <td>
+                <div class="file-actions">
+                  <%= link_to delete_inventory_file_path(file), method: :delete, class: "delete-link", data: { turbo_confirm: "Are you sure?" } do %>
+                    <i class="fas fa-trash"></i>
+                  <% end %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table >
+    </div>
+
+    <div class='upload-files'>
+      <%= form_tag(upload_path, multipart: true) do %>
+        <div class="drop_data drag-drop-box" data-controller="file-upload"  data-action="click->file-upload#triggerInput">
+          <label for="file-upload-input" class="file-upload-label">
+            Click to add files
+          </label>
+          <%= file_field_tag 'files[]', multiple: true, class: "file-input", id: "file-upload-input" %>
+        </div>
+        <div class="file-list">
+          <ul data-target="file-upload.output"></ul>
+        </div>
+      <% end %>
+    
+    </div>
+  </div>
+
+  <div class="content-data inventory">
+    <div class='left-card'>
+      <h3>QC Files</h3>
+      <table class="uploaded-files-table">
+        <thead>
+          <tr>
+            <th>File Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @qc_datasets.each do |file| %>
+            <tr>
+              <td><%= link_to file, show_qc_file_upload_path(filename_without_extension(file)) %> </td>
+              <td>
+                <div class="file-actions">
+                  <%= link_to delete_qc_file_path(file), method: :delete, class: "delete-link", data: { turbo_confirm: "Are you sure?" } do %>
+                    <i class="fas fa-trash"></i>
+                  <% end %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table >
+    </div>
+
+    <div class='upload-files'>
+      <%= form_tag(qc_upload_path, multipart: true) do %>
+        <div class="drop_data drag-drop-box" data-controller="file-upload"  data-action="click->file-upload#triggerInput">
+          <label for="file-upload-input" class="file-upload-label">
+            Click to add files
+          </label>
+          <%= file_field_tag 'files[]', multiple: true, class: "file-input", id: "file-upload-input" %>
+        </div>
+        <div class="file-list">
+          <ul data-target="file-upload.output"></ul>
+        </div>
+      <% end %>
+    
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+.notification {
+
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center; 
+  width: 40vw;
+  position: absolute; 
+  top: 10px; 
+  right: 10px; 
+  z-index: 9999
+}
+
+.notification i {
+  margin-right: 10px; 
+}
+
+.close-btn {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.close-btn:focus {
+  outline: none;
+}
+
+.close-btn:hover {
+  color: #ff0000;
+}
+
+.notice {
+  background-color: var(--light-green);
+  color: var(--dark);
+}
+
+.error {
+  background-color: var(--red);
+  color: var(--dark);
+}
+
+.info {
+  background-color: var(--light-blue);
+  color: var(--dark-blue);
+}
+
+.warning {
+  background-color: var(--dark-blue);
+  color: var(--light);
+}
