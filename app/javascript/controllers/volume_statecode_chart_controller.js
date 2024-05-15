@@ -65,7 +65,7 @@ export default class extends Controller {
             right: 0
           }
         },
-        responsive: responsive,
+        responsive: true,
         maintainAspectRatio: false
       }
     });
@@ -84,8 +84,8 @@ export default class extends Controller {
 
   adjustChartWidth(num) {
     let width = 300;
-    if (num > 5) {
-      let extension = (num - 5) * 50;
+    if (num > 9) {
+      let extension = (num - 9) * 50;
       width += extension;
     }
     const ctx = document.getElementById("rm-statecode");

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :dashboard, only: [:index] do
     collection do
-      get 'download_excel'  
+      get 'download_excel_remaining_volume'  
     end
   end
 

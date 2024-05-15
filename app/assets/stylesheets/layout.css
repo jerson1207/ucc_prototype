@@ -37,3 +37,14 @@ li {
 	list-style: none;
 }
 
+
+.custom-modal .modal-dialog {
+	max-height: 85vh;
+	display: flex;
+	align-items: center;
+}
+
+.custom-modal .modal-content {
+	max-height: 85vh;
+	overflow-y: auto;
+}

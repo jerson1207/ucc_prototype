@@ -72,8 +72,8 @@ export default class extends Controller {
 
   adjustChartWidth(num) {
     let width = 300;
-    if (num > 5) {
-      let extension = (num - 5) * 50;
+    if (num > 9) {
+      let extension = (num - 9) * 25;
       width += extension;
     }
     const ctx = document.getElementById("taxlien-filing");

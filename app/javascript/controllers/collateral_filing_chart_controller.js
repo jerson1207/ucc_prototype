@@ -67,7 +67,14 @@ export default class extends Controller {
       }
     });
 
-    this.adjustChartWidth(labelsCount);
+    tthis.adjustChartDimensions(labelsCount);
+  }
+
+  adjustChartDimensions(num) {
+    const ctx = document.getElementById("rm-type");
+    const parentHeight = ctx.parentElement.clientHeight;
+    ctx.style.height = `${parentHeight}px`;
+    this.adjustChartWidth(num);
   }
 
   adjustChartWidth(num) {

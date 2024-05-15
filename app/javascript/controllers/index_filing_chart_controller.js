@@ -52,6 +52,9 @@ export default class extends Controller {
             grid: {
               display: false
             },
+            ticks: {
+              autoSkip: false
+            },
             barThickness: 50
           }
         },
@@ -63,11 +66,19 @@ export default class extends Controller {
             right: 0
           }
         },
-        responsive: responsive
+        responsive: responsive,
+        maintainAspectRatio: false
       }
     });
 
-    this.adjustChartWidth(labelsCount);
+    this.adjustChartDimensions(labelsCount);
+  }
+
+  adjustChartDimensions(num) {
+    const ctx = document.getElementById("rm-type");
+    const parentHeight = ctx.parentElement.clientHeight;
+    ctx.style.height = `${parentHeight}px`;
+    this.adjustChartWidth(num);
   }
 
   adjustChartWidth(num) {
