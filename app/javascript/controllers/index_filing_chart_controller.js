@@ -11,7 +11,7 @@ export default class extends Controller {
     const ctx = document.getElementById("index-filing");
 
     const labelsCount = labels.length;
-    const responsive = labelsCount <= 5 ? true : false;
+    const responsive = labelsCount <= 10 ? true : false;
 
     this.chart = new Chart(ctx, {
       type: 'bar',

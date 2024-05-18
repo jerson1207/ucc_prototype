@@ -59,11 +59,11 @@
       <div class='sub-card'>
         <div class='sub-card-info'>
           <h4 class='title'>Critical</h4>
-          <h3 class='value'>100%</h3>
+          <h3 class='value'><%= @qc_score[:critical] %> </h3>
         </div>
         <div class='sub-card-info'>
           <h4 class='title'>Non-critical</h4>
-          <h3 class='value'>100%</h3>
+          <h3 class='value'><%= @qc_score[:non_critical] %> </h3>
         </div>
       </div>
       <%= link_to "click to see table", root_path, class: "tbl-btn" %>
@@ -105,13 +105,13 @@
       <%= link_to "click to see table", root_path, class: "tbl-btn" %>
     </div>
 
-    <div class='chart'>
-      <div class="chart-container" data-controller="collateral-filing-chart" data-collateral-filing-chart-age-value="<%= @filing_data["collateral"][:chart].to_json %>">
+    <div class='chart' style="overflow-x: scroll">
+      <!-- <div class="chart-container" data-controller="collateral-filing-chart" data-collateral-filing-chart-age-value="<%= @filing_data["collateral"][:chart].to_json %>">
         <canvas id="collateral-filing"></canvas>
-      </div>
-      <!-- <div class="chart-container" data-controller="volume-statecode-chart" data-volume-statecode-chart-data-value="<%= @volume_data[:remaining_volume_tbl_grouped_by_statecode].to_json %>">
-        <canvas id="rm-statecode"></canvas>
-      </div>  -->
+      </div> -->
+      <div class="chart-container" data-controller="volume-statecode-chart" data-volume-statecode-chart-data-value="<%= @volume_data[:remaining_volume_tbl_grouped_by_statecode].to_json %>"  style="position: relative;  width:900px;">
+        <canvas id="rm-statecode" height ="200"></canvas>
+      </div> 
       <%= link_to "click to see table", root_path, class: "tbl-btn" %>
     </div>
 

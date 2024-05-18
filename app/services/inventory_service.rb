@@ -28,24 +28,6 @@ class InventoryService
     end
   end
 
-  # def self.transmitted_tbl(year, month)
-  #   all_data.select do |row|
-  #     next unless row['index-date'].respond_to?(:year)
-  #     row['index-date'].year == year.to_i && row['index-date'].month == month.to_i
-  #   end
-  # end
-
-  # def self.sum_volume
-  #   total_volume = 0
-  
-  #   all_data.each do |data|
-  #     volume = data['volume'].to_i
-  #     total_volume += volume if volume
-  #   end
-  
-  #   total_volume
-  # end
-
   def self.volume_header
     [ "Shipment", "Date Received", "Type", "State Code", "Rider No", "Coverage Date-From",
       "Coverage Date-to", "Volume", "Index Unit", "Index Date", "Blank Party-Unit", "Blank Party-Date",

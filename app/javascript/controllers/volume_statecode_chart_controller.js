@@ -18,8 +18,12 @@ export default class extends Controller {
         labels: labels,
         datasets: [{
           label: 'Remaining Volume',
+
           data: data,
-          backgroundColor: '#1775F1'
+          backgroundColor: '#1775F1',
+          maxBarThickness: 50,
+          barThickness: 'flex',
+          categoryPercentage: 0.5 // Adjusts the width of the category relative to the axis width
         }]
       },
       plugins: [ChartDataLabels],
@@ -34,8 +38,8 @@ export default class extends Controller {
             display: false
           },
           title: {
-            display: true,
-            text: 'Remaining Volume by Type'
+            display: false,
+            text: 'Remaining Volume by State Code'
           }
         },
         scales: {
@@ -54,7 +58,7 @@ export default class extends Controller {
             ticks: {
               autoSkip: false
             },
-            barThickness: 'flex'
+            barPercentage: 0.9
           }
         },
         layout: {
@@ -70,25 +74,25 @@ export default class extends Controller {
       }
     });
 
-    this.adjustChartDimensions(labelsCount);
+    // this.adjustChartDimensions(labelsCount);
   }
 
-  adjustChartDimensions(num) {
-    const ctx = document.getElementById("rm-statecode");
-    const parentWidth = ctx.parentElement.clientWidth;
-    const parentHeight = ctx.parentElement.clientHeight;
-    ctx.width = parentWidth;
-    ctx.height = parentHeight;
-    this.adjustChartWidth(num);
-  }
+  // adjustChartDimensions(num) {
+  //   const ctx = document.getElementById("rm-statecode");
+  //   const parentWidth = ctx.parentElement.clientWidth;
+  //   const parentHeight = ctx.parentElement.clientHeight;
+  //   ctx.width = parentWidth;
+  //   ctx.height = parentHeight;
+  //   this.adjustChartWidth(num);
+  // }
 
-  adjustChartWidth(num) {
-    let width = 300;
-    if (num > 9) {
-      let extension = (num - 9) * 50;
-      width += extension;
-    }
-    const ctx = document.getElementById("rm-statecode");
-    ctx.style.width = `${width}px`;
-  }
+  // adjustChartWidth(num) {
+  //   let width = 300;
+  //   if (num > 9) {
+  //     let extension = (num - 9) * 50;
+  //     width += extension;
+  //   }
+  //   const ctx = document.getElementById("rm-statecode");
+  //   ctx.style.width = `${width}px`;
+  // }
 }

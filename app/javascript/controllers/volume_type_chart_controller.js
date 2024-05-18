@@ -62,7 +62,7 @@ export default class extends Controller {
             right: 0
           }
         },
-        responsive: responsive,
+        responsive: true,
         maintainAspectRatio: false
       }
     });
