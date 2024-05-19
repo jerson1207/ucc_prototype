@@ -8,7 +8,7 @@ class TransmittedService
     transmittals_data = {
       'index' => { date: 'index-date', unit: 'index-unit', tat: 'tat-index', sla: 14 },
       'blank_party' => { date: 'blank_party-date', unit: 'blank_party-unit', tat: 'tat-blank_party', sla: 14 },
-      'colateral' => { date: 'colateral-date', unit: 'colateral-unit', tat: 'tat-colateral', sla: 14 },
+      'collateral' => { date: 'collateral-date', unit: 'collateral-unit', tat: 'tat-collateral', sla: 14 },
       'special' => { date: 'special-date', unit: 'special-unit', tat: 'tat-special', sla: 14 },
       'tax_lien' => { date: 'tax_lien-date', unit: 'tax_lien-unit', tat: 'tat-tax_lien', sla: 14 },
       'mdb' => { date: 'mdb-date', unit: 'mdb-unit', tat: 'tat-mdb', sla: 7 },

@@ -10,9 +10,6 @@ export default class extends Controller {
     const data = Object.values(this.ageValue);
     const ctx = document.getElementById("collateral-filing");
 
-    const labelsCount = labels.length;
-    const responsive = labelsCount <= 5 ? true : false;
-
     this.chart = new Chart(ctx, {
       type: 'bar',
       data: {
@@ -52,6 +49,9 @@ export default class extends Controller {
             grid: {
               display: false
             },
+            ticks: {
+              autoSkip: false
+            },
             barThickness: 50
           }
         },
@@ -63,27 +63,9 @@ export default class extends Controller {
             right: 0
           }
         },
-        responsive: true
+        responsive: true,
+        maintainAspectRatio: false
       }
     });
-
-    tthis.adjustChartDimensions(labelsCount);
-  }
-
-  adjustChartDimensions(num) {
-    const ctx = document.getElementById("rm-type");
-    const parentHeight = ctx.parentElement.clientHeight;
-    ctx.style.height = `${parentHeight}px`;
-    this.adjustChartWidth(num);
-  }
-
-  adjustChartWidth(num) {
-    let width = 300;
-    if (num > 5) {
-      let extension = (num - 5) * 50;
-      width += extension;
-    }
-    const ctx = document.getElementById("collateral-filing");
-    ctx.style.width = `${width}px`;
   }
 }

@@ -31,7 +31,7 @@ class InventoryService
   def self.volume_header
     [ "Shipment", "Date Received", "Type", "State Code", "Rider No", "Coverage Date-From",
       "Coverage Date-to", "Volume", "Index Unit", "Index Date", "Blank Party-Unit", "Blank Party-Date",
-      "Colateral-unit", "Colateral-date", "Special-Unit", "Special-Date", "Tax Lien-Unit", "Tax Lien-Date",
+      "Collateral-unit", "Collateral-date", "Special-Unit", "Special-Date", "Tax Lien-Unit", "Tax Lien-Date",
       "Frame Scanned-Unit", "Frame Scanned-Date", "MDB-Unit", "MDB-Date", "Office Product-Unit", "Office Product-Date",
       "TAT-Index", "TAT-Blank Party", "TAT-Collateral", "TAT-Special", "TAT-Tax Lien", "TAT-MDB", "TAT-Office Product",
       "Status", "Age"]
@@ -61,8 +61,8 @@ class InventoryService
         'index-date' => row[9],
         'blank_party-unit' => row[10],
         'blank_party-date' => row[11],
-        'colateral-unit' => row[12],
-        'colateral-date' => row[13],
+        'collateral-unit' => row[12],
+        'collateral-date' => row[13],
         'special-unit' => row[14],
         'special-date' => row[15],
         'tax_lien-unit' => row[16],
@@ -92,7 +92,7 @@ class InventoryService
   end
 
   def self.calculate_volume_status(row)
-    date_fields = ["index-date", "blank_party-date", "colateral-date", "special-date", "tax_lien-date", "frame_scanned-date", "mdb-date", "office_product-date"]
+    date_fields = ["index-date", "blank_party-date", "collaterall-date", "special-date", "tax_lien-date", "frame_scanned-date", "mdb-date", "office_product-date"]
     if date_fields.any? { |field| row[field].present? && row[field].is_a?(Date) }
       'Process'
     else

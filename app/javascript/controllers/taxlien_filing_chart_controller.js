@@ -63,11 +63,12 @@ export default class extends Controller {
             right: 0
           }
         },
-        responsive: true
+        responsive: true,
+        maintainAspectRatio: false
       }
     });
 
-    this.adjustChartWidth(labelsCount);
+    // this.adjustChartWidth(labelsCount);
   }
 
   adjustChartWidth(num) {

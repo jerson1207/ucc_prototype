@@ -19,80 +19,95 @@
 <div class='main-container'>
   <div class='box remaining'>
     <div class='box-item box1 '>
-      <div class='card card-design'>
-        <h3 class='title'>Volume</h3>
-        <i class='bx bxs-chart' ></i>
-        <h3 class='value'><%= @volume_data[:volume] %> </h3>
+      <div class=' d-flex flex-row align-items-center card card-design'>
+        <div class="icon-wrapper iwbg1">
+          <i class="fa-regular fa-folder" style="color: #74C0FC;"></i>
+        </div>
+
+        <div class='box-data'>
+          <h3 class='title1 text-start'>Volume</h3>
+          <h3 class='value1'><%=  format_with_commas(@volume_data[:volume]) %> </h3>
+        </div>
       </div>
-      <div class='card card-design'>
-        <h3 class='title'>Remaining Volume</h3>
-        <i class='bx bxs-chart' ></i>
-        <h3 class='value'><%= @volume_data[:remaining_volume] %> </h3>
+
+      <div class='d-flex flex-row align-items-center card card-design'>
+        <div class="icon-wrapper iwbg2">
+          <i class="fa-regular fa-folder" style="color: #b39d4dd6;"></i>
+        </div>
+
+        <div class='box-data'>
+          <h3 class='title1 text-start'>Remaining Volume</h3>
+          <h3 class='value1'><%= format_with_commas(@volume_data[:remaining_volume]) %> </h3>
+        </div>
       </div>
-    
     </div>
 
     <div class='box-item card-design box2'>
       <div class='title'>Remaining Volume</div>
+
       <div class="flex-container" style="display: flex; flex-direction: column; height: 100%;">
         <div class="chart-container" data-controller="volume-type-chart" data-volume-type-chart-data-value="<%= @volume_data[:remaining_volume_tbl_grouped_by_type].to_json %>">
           <canvas id="rm-type" height="300"></canvas>
         </div>
-        <!-- Button trigger modal -->
+
         <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
           Remaining Volume Table
         </button>
 
         <%= render 'volume_tbl' %>
-
         <!-- 
         <div class="chart-container" data-controller="volume-statecode-chart" data-volume-statecode-chart-data-value="<%= @volume_data[:remaining_volume_tbl_grouped_by_statecode].to_json %>">
           <canvas id="rm-statecode" height="300"></canvas>
         </div> -->
-
        <!-- <%= button_to 'Launch static backdrop modal', '#', class: 'btn btn-primary text', data: { bs_toggle: 'modal', bs_target: '#staticBackdrop' } %> -->
       </div>
     </div>
     
     <div class='box-item card-design box3'>
       <h3 class='title'>Quality Score</h3>
+
       <div class='sub-card'>
         <div class='sub-card-info'>
-          <h4 class='title'>Critical</h4>
-          <h3 class='value'><%= @qc_score[:critical] %> </h3>
+          <h4 class='title1'>Critical</h4>
+          <h3 class='value2'><%= @qc_score[:critical] %> </h3>
         </div>
+
         <div class='sub-card-info'>
-          <h4 class='title'>Non-critical</h4>
-          <h3 class='value'><%= @qc_score[:non_critical] %> </h3>
+          <h4 class='title1'>Non-critical</h4>
+          <h3 class='value2'><%= @qc_score[:non_critical] %> </h3>
         </div>
       </div>
-      <%= link_to "click to see table", root_path, class: "tbl-btn" %>
+
+      <%= link_to "click to see table", root_path, class: "tbl-btn disabled", disabled: true %>
     </div>
   </div>
   
-  <div class='box card-design'>
-    <h3 class='title'>Volume Transmitted and TAT</h3>
-    <div class='card-data'>
-      <% @transmitted_data.each do |title, data| %>
-        <div class='card-info'>
-          <h4 class='title'><%= title.capitalize %></h4>
-          <% if data[:sla].positive? %>
-          <h3 class='sub-title'>SLA: <%= data[:sla] %> Days</h3>
-          <% end %>
-          <div class='card-box'>
-            <div class='Unit'>
-              <h3 class='title'>Unit</h3>
-              <h3 class='value'><%= data[:unit] %></h3>
-            </div>
-            <div class='TAT'>
-              <h3 class='title'>Tat</h3>
-              <h3 class='value'><%= data[:tat] %></h3>
-            </div>
+<div class="box card-design">
+  <h3 class="title">Volume Transmitted and TAT</h3>
+  <div class="card-data">
+    <% @transmitted_data.each do |title, data| %>
+      <div class="card-info">
+        <h4 class="title"><%= title.capitalize %></h4>
+        
+        <% if data[:sla].positive? %>
+          <h3 class="sub-title">SLA: <%= data[:sla] %> Days</h3>
+        <% end %>
+
+        <div class="card-box">
+          <div class="Unit">
+            <h3 class="title">Unit</h3>
+            <h3 class="value4"><%= data[:unit] %></h3>
+          </div>
+
+          <div class="TAT">
+            <h3 class="title">Tat</h3>
+            <h3 class="value4"><%= data[:tat] %></h3>
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
+</div>
 
 
   <div class='box card-design filing'>
@@ -100,27 +115,29 @@
     <div class='chart'>
       
       <div class="chart-container" data-controller="index-filing-chart" data-index-filing-chart-age-value="<%= @filing_data["index"][:chart].to_json %>">
-        <canvas id="index-filing"></canvas>
+        <canvas id="index-filing"  height ="200"></canvas>
       </div>
-      <%= link_to "click to see table", root_path, class: "tbl-btn" %>
+      <%= link_to "click to see table", root_path, class: "tbl-btn disabled", disabled: true %>
     </div>
 
     <div class='chart' style="overflow-x: scroll">
-      <!-- <div class="chart-container" data-controller="collateral-filing-chart" data-collateral-filing-chart-age-value="<%= @filing_data["collateral"][:chart].to_json %>">
-        <canvas id="collateral-filing"></canvas>
-      </div> -->
-      <div class="chart-container" data-controller="volume-statecode-chart" data-volume-statecode-chart-data-value="<%= @volume_data[:remaining_volume_tbl_grouped_by_statecode].to_json %>"  style="position: relative;  width:900px;">
+      <div class="chart-container" data-controller="collateral-filing-chart" 
+      data-collateral-filing-chart-age-value="<%= @filing_data["collateral"][:chart].to_json %>" 
+      style="position: relative;  width:2000px;">
+        <canvas id="collateral-filing"  height ="200"></canvas>
+      </div>
+      <!-- <div class="chart-container" data-controller="volume-statecode-chart" data-volume-statecode-chart-data-value="<%= @volume_data[:remaining_volume_tbl_grouped_by_statecode].to_json %>"  style="position: relative;  width:900px;">
         <canvas id="rm-statecode" height ="200"></canvas>
-      </div> 
-      <%= link_to "click to see table", root_path, class: "tbl-btn" %>
+      </div>  -->
+      <%= link_to "click to see table", root_path, class: "tbl-btn disabled", disabled: true %>
     </div>
 
     <div class='chart'>
       <div class="chart-container" data-controller="taxlien-filing-chart" data-taxlien-filing-chart-age-value="<%= @filing_data["tax_lien"][:chart].to_json %>">
-        <canvas id="taxlien-filing"></canvas>
+        <canvas id="taxlien-filing"  height ="200"></canvas>
       </div>
-      <%= link_to "click to see table", root_path, class: "tbl-btn" %>
+
+      <%= link_to "click to see table", root_path, class: "tbl-btn disabled", disabled: true %>
     </div>
   </div>
-
 </div>

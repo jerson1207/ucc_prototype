@@ -1,3 +1,103 @@
 .modal-view {
   height: 90vh;
 }
+
+.icon-wrapper {
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
+  width: 50px; 
+  height: 50px; 
+   
+  border-radius: 50%; 
+}
+
+.iwbg1 {
+  background-color: #0fcfd15c;
+}
+
+.iwbg2 {
+  background-color: #a7950a5c;
+}
+
+.icon-wrapper i {
+  font-size: 24px; 
+}
+
+.box-data {
+  margin-left: 10px;
+}
+
+.title1 {
+  font-size: 12px;
+}
+
+.value1 {
+  font-size: 30px;
+  text-align: left;
+}
+
+.value2 {
+  font-size: 50px;
+}
+
+.value4 {
+  font-size: 24px;
+}
+
+
+
+.box {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.card-design {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; 
+}
+
+.title {
+  margin: 0; 
+}
+
+.card-data {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; 
+  overflow-y: auto; 
+}
+
+.card-info {
+  border: 1px solid #ccc; 
+  margin: 10px; 
+  padding: 10px; 
+  border-radius: 5px;
+}
+
+.card-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Unit, .TAT {
+  flex-basis: 48%; 
+}
+
+
+
+.grid {
+  display: grid;
+  flex-grow: 1; 
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 5px;
+}
+
+.tbl-btn.disabled {
+  color: #ccc; 
+  cursor: not-allowed; 
+  pointer-events: none; 
+  text-decoration: none; 
+}
