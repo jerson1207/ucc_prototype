@@ -62,7 +62,7 @@
        <!-- <%= button_to 'Launch static backdrop modal', '#', class: 'btn btn-primary text', data: { bs_toggle: 'modal', bs_target: '#staticBackdrop' } %> -->
       </div>
     </div>
-    
+
     <div class='box-item card-design box3'>
       <h3 class='title'>Quality Score</h3>
 
@@ -82,33 +82,32 @@
     </div>
   </div>
   
-<div class="box card-design">
-  <h3 class="title">Volume Transmitted and TAT</h3>
-  <div class="card-data">
-    <% @transmitted_data.each do |title, data| %>
-      <div class="card-info">
-        <h4 class="title"><%= title.capitalize %></h4>
-        
-        <% if data[:sla].positive? %>
-          <h3 class="sub-title">SLA: <%= data[:sla] %> Days</h3>
-        <% end %>
+  <div class="box card-design">
+    <h3 class="title">Volume Transmitted and TAT</h3>
+    <div class="card-data">
+      <% @transmitted_data.each do |title, data| %>
+        <div class="card-info">
+          <h4 class="title"><%= title.capitalize %></h4>
+          
+          <% if data[:sla].positive? %>
+            <h3 class="sub-title">SLA: <%= data[:sla] %> Days</h3>
+          <% end %>
 
-        <div class="card-box">
-          <div class="Unit">
-            <h3 class="title">Unit</h3>
-            <h3 class="value4"><%= data[:unit] %></h3>
-          </div>
+          <div class="card-box">
+            <div class="Unit">
+              <h3 class="title">Unit</h3>
+              <h3 class="value4"><%= data[:unit] %></h3>
+            </div>
 
-          <div class="TAT">
-            <h3 class="title">Tat</h3>
-            <h3 class="value4"><%= data[:tat] %></h3>
+            <div class="TAT">
+              <h3 class="title">Tat</h3>
+              <h3 class="value4"><%= data[:tat] %></h3>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
-
 
   <div class='box card-design filing'>
     <h3 class='title'>Volume Transmitted and TAT</h3>
@@ -126,9 +125,6 @@
       style="position: relative;  width:2000px;">
         <canvas id="collateral-filing"  height ="200"></canvas>
       </div>
-      <!-- <div class="chart-container" data-controller="volume-statecode-chart" data-volume-statecode-chart-data-value="<%= @volume_data[:remaining_volume_tbl_grouped_by_statecode].to_json %>"  style="position: relative;  width:900px;">
-        <canvas id="rm-statecode" height ="200"></canvas>
-      </div>  -->
       <%= link_to "click to see table", root_path, class: "tbl-btn disabled", disabled: true %>
     </div>
 

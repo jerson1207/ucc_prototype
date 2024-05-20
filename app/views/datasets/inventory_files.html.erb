@@ -38,39 +38,39 @@
         </tr>
       </thead>
       <tbody>
-        <% @inventory_files.each do |row| %>
+        <% @inventories.each do |inventory| %>
           <tr>
-            <td><%= row['shipment'] %></td>
-            <td><%= row['date_received'] %></td>
-            <td><%= row['type'] %></td>
-            <td><%= row['state_code'] %></td>
-            <td><%= row['rider_no'] %></td>
-            <td><%= row['coverage_date-from'] %></td>
-            <td><%= row['coverage_date-to'] %></td>
-            <td><%= row['volume'] %></td>
-            <td><%= row['index-unit'] %></td>
-            <td><%= row['index-date'] %></td>
-            <td><%= row['blank_party-unit'] %></td>
-            <td><%= row['blank_party-date'] %></td>
-            <td><%= row['collateral-unit'] %></td>
-            <td><%= row['collateral-date'] %></td>
-            <td><%= row['special-unit'] %></td>
-            <td><%= row['special-date'] %></td>
-            <td><%= row['tax_lien-unit'] %></td>
-            <td><%= row['tax_lien-date'] %></td>
-            <td><%= row['frame_scanned-unit'] %></td>
-            <td><%= row['frame_scanned-date'] %></td>
-            <td><%= row['mdb-unit'] %></td>
-            <td><%= row['mdb-date'] %></td>
-            <td><%= row['office_product-unit'] %></td>
-            <td><%= row['office_product-date'] %></td>
-            <td><%= row['tat-index'] %></td>
-            <td><%= row['tat-blank_party'] %></td>
-            <td><%= row['tat-collateral'] %></td>
-            <td><%= row['tat-special'] %></td>
-            <td><%= row['tat-tax_lien'] %></td>
-            <td><%= row['tat-mdb'] %></td>
-            <td><%= row['tat-office_product'] %></td>
+            <td><%= inventory['shipment'] %></td>
+            <td><%= inventory['date_received'] %></td>
+            <td><%= inventory['type'] %></td>
+            <td><%= inventory['state_code'] %></td>
+            <td><%= inventory['rider_no'] %></td>
+            <td><%= inventory['coverage_date_from'] %></td>
+            <td><%= inventory['coverage_date_to'] %></td>
+            <td><%= inventory['volume'] %></td>
+            <td><%= inventory['index_unit'] %></td>
+            <td><%= inventory['index_date'] %></td>
+            <td><%= inventory['blank_party_unit'] %></td>
+            <td><%= inventory['blank_party_date'] %></td>
+            <td><%= inventory['collateral_unit'] %></td>
+            <td><%= inventory['collateral_date'] %></td>
+            <td><%= inventory['special_unit'] %></td>
+            <td><%= inventory['special_date'] %></td>
+            <td><%= inventory['tax_lien_unit'] %></td>
+            <td><%= inventory['tax_lien_date'] %></td>
+            <td><%= inventory['frame_scanned_unit'] %></td>
+            <td><%= inventory['frame_scanned_date'] %></td>
+            <td><%= inventory['mdb_unit'] %></td>
+            <td><%= inventory['mdb_date'] %></td>
+            <td><%= inventory['office_product_unit'] %></td>
+            <td><%= inventory['office_product_date'] %></td>
+            <td><%= inventory['tat_index'] %></td>
+            <td><%= inventory['tat_blank_party'] %></td>
+            <td><%= inventory['tat_collateral'] %></td>
+            <td><%= inventory['tat_special'] %></td>
+            <td><%= inventory['tat_tax_lien'] %></td>
+            <td><%= inventory['tat_mdb'] %></td>
+            <td><%= inventory['tat_office_product'] %></td>
           </tr>
         <% end %>
       </tbody>

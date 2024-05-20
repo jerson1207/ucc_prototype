@@ -2,14 +2,7 @@ class InventoryService
   UPLOADS_DIR = Rails.root.join('public', 'inventory_files')
 
   def self.all_data
-    all_data = []
-
-    excel_files.each do |file|
-      excel = Roo::Spreadsheet.open(file)
-      all_data += parse_sheet(excel)
-    end
-
-    all_data
+    InventoryItem.all
   end
 
   def self.data(filename)

@@ -6,8 +6,9 @@ export default class extends Controller {
   static values = { data: Array };
 
   connect() {
+    debugger
     const data = this.dataValue.map((item) => item.volume);
-    const labels = this.dataValue.map((item) => item.type);
+    const labels = this.dataValue.map((item) => item.inventory_type);
     const ctx = document.getElementById("rm-type");
 
     const labelsCount = labels.length;

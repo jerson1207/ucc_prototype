@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ucc_transmission_date: MyString
+  number_of_filing: MyString
+  no_of_error_critical: MyString
+  no_of_error_non_critcal: MyString
+  quality_score_critical: MyString
+  quality_score_non_critical: MyString
+  base: MyString
+  debtor: MyString
+  collaterals: MyString
+  month_year: MyString
+  qc: one
+
+two:
+  ucc_transmission_date: MyString
+  number_of_filing: MyString
+  no_of_error_critical: MyString
+  no_of_error_non_critcal: MyString
+  quality_score_critical: MyString
+  quality_score_non_critical: MyString
+  base: MyString
+  debtor: MyString
+  collaterals: MyString
+  month_year: MyString
+  qc: two

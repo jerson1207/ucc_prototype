@@ -1,9 +1,11 @@
 class DatasetsController < ApplicationController
   def inventory_files
-    @inventory_files = InventoryService.all_data
+    @inventories =InventoryItem.all
   end
 
   def qc_files
-    @qc_files = QcFilesService.all_data
+    @qcs = QcItem.all
   end
+
+  
 end

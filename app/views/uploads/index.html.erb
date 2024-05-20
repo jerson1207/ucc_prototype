@@ -20,12 +20,13 @@
           </tr>
         </thead>
         <tbody>
-          <% @files.each do |file| %>
+          <% @inventory_files.each do |file| %>
             <tr>
-              <td><%= link_to file, show_inventory_file_upload_path(filename_without_extension(file)) %> </td>
+
+              <td><%= link_to file.filename, show_inventory_file_upload_path(file.filename) %> </td>
               <td>
                 <div class="file-actions">
-                  <%= link_to delete_inventory_file_path(file), method: :delete, class: "delete-link", data: { turbo_confirm: "Are you sure?" } do %>
+                  <%= link_to delete_inventory_file_path(file.filename), method: :delete, class: "delete-link", data: { turbo_confirm: "Are you sure?" } do %>
                     <i class="fas fa-trash"></i>
                   <% end %>
                 </div>
@@ -63,12 +64,12 @@
           </tr>
         </thead>
         <tbody>
-          <% @qc_datasets.each do |file| %>
+          <% @qc_files.each do |file| %>
             <tr>
-              <td><%= link_to file, show_qc_file_upload_path(filename_without_extension(file)) %> </td>
+              <td><%= link_to file.filename, show_qc_file_upload_path(file.filename) %> </td>
               <td>
                 <div class="file-actions">
-                  <%= link_to delete_qc_file_path(file), method: :delete, class: "delete-link", data: { turbo_confirm: "Are you sure?" } do %>
+                  <%= link_to delete_qc_file_path(file.filename), method: :delete, class: "delete-link", data: { turbo_confirm: "Are you sure?" } do %>
                     <i class="fas fa-trash"></i>
                   <% end %>
                 </div>

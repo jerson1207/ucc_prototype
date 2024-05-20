@@ -7,35 +7,40 @@ class FilingService
   end
 
   def index
-    select_data('index-date')
+    select_data('index_date')
   end
 
   def collateral
-    select_data('collateral-date')
+    select_data('collateral_date')
   end
 
   def tax_lien
-    select_data('tax_lien-date')
+    select_data('tax_lien_date')
   end
 
   def filing_info
     {
-      "index" => { chart: calculate_average_age(index), table: index },
-      "collateral" => { chart: calculate_average_age(collateral), table: collateral },
-      "tax_lien" => { chart: calculate_average_age(tax_lien), table: tax_lien }
+      "index" => { chart: calculate_average_age(index) },
+      "collateral" => { chart: calculate_average_age(collateral) },
+      "tax_lien" => { chart: calculate_average_age(tax_lien)}
     }
   end
 
   private
 
   def select_data(date_key)
-    InventoryService.all_data.select do |row|
-      next unless row[date_key].respond_to?(:year)
-      row[date_key].year == year && row[date_key].month == month
+    InventoryItem.select do |item|
+      begin
+        parsed_date = Date.strptime(item[date_key], '%Y-%m-%d')
+        parsed_date.year == @year.to_i && parsed_date.month == @month.to_i
+      rescue
+        false
+      end
     end
   end
 
   def calculate_average_age(data)
+    
     data.group_by { |row| row["state_code"] }.transform_values do |rows|
       old_age_values = rows.map { |row| row["days_old"].to_i }
       unless old_age_values.empty?

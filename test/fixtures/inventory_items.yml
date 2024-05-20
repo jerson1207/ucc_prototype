@@ -1,0 +1,73 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shipment: MyString
+  date_received: 2024-05-19
+  type: 
+  state_code: MyString
+  rider_no: MyString
+  coverage_date_from: 2024-05-19
+  coverage_date_to: 2024-05-19
+  volume: 1
+  index_unit: MyString
+  index_date: 2024-05-19
+  blank_party_unit: MyString
+  blank_party_date: 2024-05-19
+  collateral_unit: MyString
+  collateral_date: 2024-05-19
+  special_unit: MyString
+  special_date: 2024-05-19
+  tax_lien_unit: MyString
+  tax_lien_date: 2024-05-19
+  frame_scanned_unit: MyString
+  frame_scanned_date: 2024-05-19
+  mdb_unit: MyString
+  mdb_date: 2024-05-19
+  office_product_unit: MyString
+  office_product_date: 2024-05-19
+  tat_index: MyString
+  tat_blank_party: MyString
+  tat_collateral: MyString
+  tat_special: MyString
+  tat_tax_lien: MyString
+  tat_mdb: MyString
+  tat_office_product: MyString
+  volume_status: MyString
+  days_old: 1
+  inventory: one
+
+two:
+  shipment: MyString
+  date_received: 2024-05-19
+  type: 
+  state_code: MyString
+  rider_no: MyString
+  coverage_date_from: 2024-05-19
+  coverage_date_to: 2024-05-19
+  volume: 1
+  index_unit: MyString
+  index_date: 2024-05-19
+  blank_party_unit: MyString
+  blank_party_date: 2024-05-19
+  collateral_unit: MyString
+  collateral_date: 2024-05-19
+  special_unit: MyString
+  special_date: 2024-05-19
+  tax_lien_unit: MyString
+  tax_lien_date: 2024-05-19
+  frame_scanned_unit: MyString
+  frame_scanned_date: 2024-05-19
+  mdb_unit: MyString
+  mdb_date: 2024-05-19
+  office_product_unit: MyString
+  office_product_date: 2024-05-19
+  tat_index: MyString
+  tat_blank_party: MyString
+  tat_collateral: MyString
+  tat_special: MyString
+  tat_tax_lien: MyString
+  tat_mdb: MyString
+  tat_office_product: MyString
+  volume_status: MyString
+  days_old: 1
+  inventory: two

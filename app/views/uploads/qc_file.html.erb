@@ -22,17 +22,17 @@
         </tr>
       </thead>
       <tbody>
-        <% @qc_file_data.each do |row| %>
+        <% @qc_file_data.each do |file| %>
           <tr>
-            <td><%= row['ucc_transmission_date'] %></td>
-            <td><%= row['number_of_filing'] %></td>
-            <td><%= row['no_of_error_critical'] %></td>
-            <td><%= row['no_of_error_non-critical'] %></td>
-            <td><%= row['quality_score_critical'] %></td>
-            <td><%= row['quality_score_non-critical'] %></td>
-            <td><%= row['base'] %></td>
-            <td><%= row['debtor'] %></td>
-            <td><%= row['collaterals'] %></td>
+            <td><%= file['ucc_transmission_date'] %></td>
+            <td><%= file['number_of_filing'] %></td>
+            <td><%= file['no_of_error_critical'] %></td>
+            <td><%= file['no_of_error_non_critical'] %></td>
+            <td><%= string_percent(file['quality_score_critical']) %></td>
+            <td><%= string_percent(file['quality_score_non_critical']) %></td>
+            <td><%= file['base'] %></td>
+            <td><%= file['debtor'] %></td>
+            <td><%= file['collaterals'] %></td>
           </tr>
         <% end %>
       </tbody>

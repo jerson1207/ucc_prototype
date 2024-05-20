@@ -6,7 +6,9 @@ class DashboardController < ApplicationController
     @transmitted_data = transmitted_data
     @filing_data = filing_data
     @default_table = default_table_data
+
     @qc_score = qc_score
+    
   end
 
   def download_excel_remaining_volume
@@ -40,7 +42,7 @@ class DashboardController < ApplicationController
   end
 
   def default_table_data
-    @default_table_data ||= InventoryService.filtered_data(@year, @month)
+    @default_table_data ||= RemainingVolumeService.new(@month, @year).remaining_volume_tbl
   end
 
   def qc_score

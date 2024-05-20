@@ -11,15 +11,22 @@ class QcService
   def filename_lookup
     month_name = Date::MONTHNAMES[month]
     abbreviated_month = month_name[0, 3]
-    "#{abbreviated_month} '#{year}"
+    "#{abbreviated_month} #{year}"
   end
 
   def fetch_score
     base_filename = filename_lookup
-    file_path = find_matching_file(base_filename)
-    
-    if file_path
-      read_excel_file(file_path)
+    item = QcItem.where(month_year: filename_lookup, ucc_transmission_date: "Accuracy").first
+
+    if item.present?
+      critical_percent_value = item.quality_score_critical.to_f * 100
+      critical_formatted_percentage = sprintf('%.2f%%', critical_percent_value)
+
+      non_critical_percent_value = item.quality_score_non_critical.to_f * 100
+      non_critical_formatted_percentage = sprintf('%.2f%%', non_critical_percent_value)
+
+      {critical: critical_percent_value,  
+        non_critical: non_critical_formatted_percentage }
     else
       {
         critical: "n/a",  
