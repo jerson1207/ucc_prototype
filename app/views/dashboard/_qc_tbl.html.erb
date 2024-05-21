@@ -1,0 +1,46 @@
+<div class="modal fade " id="qc_table" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content modal-view">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Quality Score</h5>
+        <!-- <%= link_to download_excel_remaining_volume_dashboard_index_path(year: @year, month: @month), 
+            class: "px-2 btn btn-primary" do %>
+          <i class="fas fa-download"></i> -->
+        <% end %>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body scroll">
+        <table >
+          <thead>
+            <tr>
+          <th>UCC Transmission date</th>
+          <th>Number of Filings</th>
+          <th>Number of Errors (Critical)</th>
+          <th>Number of Errors (Non-Critical)</th>
+          <th>Qualty Score (Critical)</th>
+          <th>Qualty Score (Non-Critical)</th>
+          <th>Base Recs</th>
+          <th>Debtor/Secured Party</th>
+          <th>Collaterals</th>
+        </tr>
+          </thead>
+          <tbody>
+            <% @qc_score[:table]&.each do |file| %>
+              <tr>
+                <td><%= file['ucc_transmission_date'] %></td>
+                <td><%= file['number_of_filing'] %></td>
+                <td><%= file['no_of_error_critical'] %></td>
+                <td><%= file['no_of_error_non_critical'] %></td>
+                <td><%= string_percent(file['quality_score_critical']) %></td>
+                <td><%= string_percent(file['quality_score_non_critical']) %></td>
+                <td><%= file['base'] %></td>
+                <td><%= file['debtor'] %></td>
+                <td><%= file['collaterals'] %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

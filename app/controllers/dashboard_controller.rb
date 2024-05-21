@@ -6,9 +6,15 @@ class DashboardController < ApplicationController
     @transmitted_data = transmitted_data
     @filing_data = filing_data
     @default_table = default_table_data
-
     @qc_score = qc_score
-    
+    @index_transmitted_table = TransmittedService.new(@year, @month).transmitted_tbl("index_date")
+    @blank_party_transmitted_table = TransmittedService.new(@year, @month).transmitted_tbl("blank_party_date")
+    @collateral_transmitted_table = TransmittedService.new(@year, @month).transmitted_tbl("collateral_date")
+    @special_transmitted_table = TransmittedService.new(@year, @month).transmitted_tbl("special_date")
+    @tax_lien_transmitted_table = TransmittedService.new(@year, @month).transmitted_tbl("tax_lien_date")
+    @mdb_transmitted_table = TransmittedService.new(@year, @month).transmitted_tbl("mdb_date")
+    @office_product_transmitted_table = TransmittedService.new(@year, @month).transmitted_tbl("office_product_date")
+    @framed_scanned_transmitted_table = TransmittedService.new(@year, @month).transmitted_tbl("framed_scanned_date")
   end
 
   def download_excel_remaining_volume

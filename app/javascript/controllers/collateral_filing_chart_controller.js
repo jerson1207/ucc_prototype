@@ -32,7 +32,7 @@ export default class extends Controller {
             display: false
           },
           title: {
-            display: true,
+            display: false,
             text: 'Collateral'
           }
         },

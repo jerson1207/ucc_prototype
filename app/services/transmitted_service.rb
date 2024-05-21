@@ -30,25 +30,24 @@ class TransmittedService
       transmittals_info[title] = {
         unit: calculate_total_unit(table, unit), 
         tat: calculate_average_tat(table, tat), 
-        sla: sla
+        sla: sla,
+        table: table
       }
     end
 
     transmittals_info
   end
 
-  private
-
   def transmitted_tbl(date)
     InventoryItem.select do |item|
-      begin
-        parsed_date = Date.strptime(item[date], '%Y-%m-%d')
+      if item[date] =~ /\A\d{4}-\d{2}-\d{2}\z/
+        parsed_date = Date.parse(item[date])
         parsed_date.year == @year.to_i && parsed_date.month == @month.to_i
-      rescue
-        false
       end
     end
   end
+
+  private
 
   def calculate_total_unit(table, unit)
     total = 0

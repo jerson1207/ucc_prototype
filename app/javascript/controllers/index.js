@@ -7,6 +7,9 @@ import { application } from "./application"
 import ChartController from "./chart_controller"
 application.register("chart", ChartController)
 
+import ClickableController from "./clickable_controller"
+application.register("clickable", ClickableController)
+
 import CollateralFilingChartController from "./collateral_filing_chart_controller"
 application.register("collateral-filing-chart", CollateralFilingChartController)
 

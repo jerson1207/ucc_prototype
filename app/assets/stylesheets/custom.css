@@ -101,3 +101,14 @@
   pointer-events: none; 
   text-decoration: none; 
 }
+
+.transmitted-container {
+  position: relative; /* Parent element needs to be positioned */
+}
+
+p.transmitted-title {
+  position: absolute; /* Position absolute within the parent */
+  top: 0;
+  z-index: 5;
+  width: 100%;
+}

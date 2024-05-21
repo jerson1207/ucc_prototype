@@ -53,7 +53,6 @@
         <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
           Remaining Volume Table
         </button>
-
         <%= render 'volume_tbl' %>
         <!-- 
         <div class="chart-container" data-controller="volume-statecode-chart" data-volume-statecode-chart-data-value="<%= @volume_data[:remaining_volume_tbl_grouped_by_statecode].to_json %>">
@@ -78,15 +77,22 @@
         </div>
       </div>
 
-      <%= link_to "click to see table", root_path, class: "tbl-btn disabled", disabled: true %>
+      <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#qc_table">
+        click to see table
+      </button>
+      <%= render 'qc_tbl' %>
     </div>
   </div>
   
-  <div class="box card-design">
-    <h3 class="title">Volume Transmitted and TAT</h3>
-    <div class="card-data">
-      <% @transmitted_data.each do |title, data| %>
-        <div class="card-info">
+  <div class='box card-design'>
+    <h3 class='title'>Volume Transmitted and TAT</h3>
+    <div class='card-data'>
+      <% @transmitted_data.each_with_index do |(title, data), index| %>
+        <div class="card-info clickable" data-controller="clickable" 
+            data-action="click->clickable#openModal" 
+            data-target="clickable.modalTarget" 
+            data-bs-toggle="modal" 
+            data-bs-target="#transmitted_index_<%= index %>">
           <h4 class="title"><%= title.capitalize %></h4>
           
           <% if data[:sla].positive? %>
@@ -98,42 +104,57 @@
               <h3 class="title">Unit</h3>
               <h3 class="value4"><%= data[:unit] %></h3>
             </div>
-
-            <div class="TAT">
-              <h3 class="title">Tat</h3>
-              <h3 class="value4"><%= data[:tat] %></h3>
-            </div>
+            <% if data[:sla].positive? %>
+              <div class="TAT">
+                <h3 class="title">Tat</h3>
+                <h3 class="value4"><%= data[:tat] %></h3>
+              </div>
+            <% end %>
           </div>
         </div>
+        
+        <!-- Render modal dynamically -->
+        <%= render 'transmitted_index_tbl', transmitted_data: data[:table] , title: title, modal_id: "transmitted_index_#{index}" %>
       <% end %>
     </div>
   </div>
 
+
+
   <div class='box card-design filing'>
     <h3 class='title'>Volume Transmitted and TAT</h3>
-    <div class='chart'>
-      
-      <div class="chart-container" data-controller="index-filing-chart" data-index-filing-chart-age-value="<%= @filing_data["index"][:chart].to_json %>">
-        <canvas id="index-filing"  height ="200"></canvas>
+
+    <div class='transmitted-container'>
+      <p class="transmitted-title text-center">Index</p>
+      <div class='transmitted-chart'>
+        <div class="chart-container" data-controller="index-filing-chart" data-index-filing-chart-age-value="<%= @filing_data["index"][:chart].to_json %>">
+          <canvas id="index-filing"  height ="200"></canvas>
+        </div>
+        <%= link_to "click to see table", root_path, class: "tbl-btn disabled", disabled: true %>
       </div>
-      <%= link_to "click to see table", root_path, class: "tbl-btn disabled", disabled: true %>
+    </div>
+  
+    <div class='transmitted-container'>
+      <p class="transmitted-title text-center">Collateral</p>
+      <div class='chart' style="overflow-x: scroll">
+        <div class="chart-container" data-controller="collateral-filing-chart" 
+        data-collateral-filing-chart-age-value="<%= @filing_data["collateral"][:chart].to_json %>" 
+        style="position: relative;  width:2000px;">
+          <canvas id="collateral-filing"  height ="200"></canvas>
+        </div>
+        <%= link_to "click to see table", root_path, class: "tbl-btn disabled", disabled: true %>
+      </div>
     </div>
 
-    <div class='chart' style="overflow-x: scroll">
-      <div class="chart-container" data-controller="collateral-filing-chart" 
-      data-collateral-filing-chart-age-value="<%= @filing_data["collateral"][:chart].to_json %>" 
-      style="position: relative;  width:2000px;">
-        <canvas id="collateral-filing"  height ="200"></canvas>
-      </div>
-      <%= link_to "click to see table", root_path, class: "tbl-btn disabled", disabled: true %>
-    </div>
+    <div class='transmitted-container'>
+      <p class="transmitted-title text-center">Tax Lien</p>
+      <div class='chart'>
+        <div class="chart-container" data-controller="taxlien-filing-chart" data-taxlien-filing-chart-age-value="<%= @filing_data["tax_lien"][:chart].to_json %>">
+          <canvas id="taxlien-filing"  height ="200"></canvas>
+        </div>
 
-    <div class='chart'>
-      <div class="chart-container" data-controller="taxlien-filing-chart" data-taxlien-filing-chart-age-value="<%= @filing_data["tax_lien"][:chart].to_json %>">
-        <canvas id="taxlien-filing"  height ="200"></canvas>
-      </div>
-
-      <%= link_to "click to see table", root_path, class: "tbl-btn disabled", disabled: true %>
+        <%= link_to "click to see table", root_path, class: "tbl-btn disabled", disabled: true %>
     </div>
+  </div>
   </div>
 </div>
