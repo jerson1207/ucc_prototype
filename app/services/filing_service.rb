@@ -20,9 +20,9 @@ class FilingService
 
   def filing_info
     {
-      "index" => { chart: calculate_average_age(index) },
-      "collateral" => { chart: calculate_average_age(collateral) },
-      "tax_lien" => { chart: calculate_average_age(tax_lien)}
+      "index" => { chart: calculate_average_age(index), table: index },
+      "collateral" => { chart: calculate_average_age(collateral), table: collateral },
+      "tax_lien" => { chart: calculate_average_age(tax_lien), table: tax_lien}
     }
   end
 

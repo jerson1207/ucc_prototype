@@ -1,4 +1,4 @@
-<div class="modal fade" id="<%= modal_id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="<%= filing_modal_id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     <div class="modal-content modal-view">
       <div class="modal-header">
@@ -14,25 +14,23 @@
           <thead>
             <tr>
               <th>Date Transmitted</th>
-              <th>Units</th>
-              <th>TAT</th>
+              <th>Age</th>
               <th>State Code</th>
               <th>Date Received</th>
-              <th>Rider No.</th>
-              <th>Date Coverage From</th>
-              <th>Date Coverage To</th>
-              <th>No of Filings</th>
+              <th>Rider No</th>
+              <th>Coverage Date From</th>
+              <th>Coverate Date To</th>
+              <th>Ni of Filings Received</th>
             </tr>
           </thead>
           <tbody>
-            <% transmitted_data&.each do |row| %>
+            <% filing_table&.each do |row| %>
               <tr>
-                <td><%= row["#{title}_date"] %></td>
-                <td><%= row["#{title}_unit"] %></td>
-                <td><%= row["tat_#{title}"] %></td>
+                <td><%= row["#{title}_date"] %></td>   
+                <td><%= row["days_old"] %></td>
                 <td><%= row["state_code"] %></td>
                 <td><%= row["date_received"] %></td>
-                <td><%= row["rider_no"] %></td>
+                <td><%= row["rider_no:"] %></td>
                 <td><%= row["coverage_date_from"] %></td>
                 <td><%= row["coverage_date_to"] %></td>
                 <td><%= row["volume"] %></td>

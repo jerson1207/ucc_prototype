@@ -112,14 +112,11 @@
             <% end %>
           </div>
         </div>
-        
-        <!-- Render modal dynamically -->
+
         <%= render 'transmitted_index_tbl', transmitted_data: data[:table] , title: title, modal_id: "transmitted_index_#{index}" %>
       <% end %>
     </div>
   </div>
-
-
 
   <div class='box card-design filing'>
     <h3 class='title'>Volume Transmitted and TAT</h3>
@@ -130,7 +127,11 @@
         <div class="chart-container" data-controller="index-filing-chart" data-index-filing-chart-age-value="<%= @filing_data["index"][:chart].to_json %>">
           <canvas id="index-filing"  height ="200"></canvas>
         </div>
-        <%= link_to "click to see table", root_path, class: "tbl-btn disabled", disabled: true %>
+
+        <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#filing_modal_index">
+          click to see table
+        </button>
+        <%= render 'filing_tbl', filing_table: @filing_data["index"][:table] , title: "index", filing_modal_id: "filing_modal_index" %>
       </div>
     </div>
   
@@ -142,7 +143,11 @@
         style="position: relative;  width:2000px;">
           <canvas id="collateral-filing"  height ="200"></canvas>
         </div>
-        <%= link_to "click to see table", root_path, class: "tbl-btn disabled", disabled: true %>
+        
+        <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#filing_modal_collateral">
+          click to see table
+        </button>
+        <%= render 'filing_tbl', filing_table: @filing_data["collateral"][:table] , title: "collateral", filing_modal_id: "filing_modal_collateral" %>
       </div>
     </div>
 
@@ -153,7 +158,10 @@
           <canvas id="taxlien-filing"  height ="200"></canvas>
         </div>
 
-        <%= link_to "click to see table", root_path, class: "tbl-btn disabled", disabled: true %>
+        <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#filing_modal_tax_lien">
+          click to see table
+        </button>
+        <%= render 'filing_tbl', filing_table: @filing_data["tax_lien"][:table] , title: "tax_lien", filing_modal_id: "filing_modal_tax_lien" %>
     </div>
   </div>
   </div>
