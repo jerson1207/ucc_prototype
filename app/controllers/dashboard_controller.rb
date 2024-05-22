@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  before_action :extract_year_and_month, only: [:index, :download_excel_remaining_volume]
+  before_action :extract_year_and_month, only: [:index, :download_excel]
 
   def index
     @volume_data = volume_data
@@ -17,15 +17,12 @@ class DashboardController < ApplicationController
     @framed_scanned_transmitted_table = TransmittedService.new(@year, @month).transmitted_tbl("framed_scanned_date")
   end
 
-  def download_excel_remaining_volume
-    content = default_table_data
-    headers = InventoryService.volume_header
-    if content.present?
-      excel_data = ExcelGeneratorService.new(content, headers).generate_excel
-      send_data excel_data, filename: "Remaining.xlsx"
-    else
-      render plain: "No data available for the specified year and month", status: :unprocessable_entity
-    end
+  def download_excel
+    year = params[:year]
+    month = params[:month]
+    trademark = params[:trademark]
+    excel_data = excel_generator(month, year, trademark)
+    send_data excel_data, filename: "#{trademark}_#{Time.now}.xlsx"
   end
 
   private
@@ -53,5 +50,9 @@ class DashboardController < ApplicationController
 
   def qc_score
     @qc_score ||= QcService.new(@year, @month).fetch_score
+  end
+
+  def excel_generator(month, year, trademark)
+    @excel_generator ||= ExcelGeneratorService.new(month, year, trademark).generate_excel
   end
 end

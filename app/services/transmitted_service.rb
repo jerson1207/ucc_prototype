@@ -7,7 +7,7 @@ class TransmittedService
   def transmittals_info
     transmittals_data = {
       index: { date: 'index_date', unit: 'index_unit', tat: 'tat_index', sla: 14 },
-      blank_party: { date: 'blank_party_date', unit: 'blank_party-unit', tat: 'tat_blank_party', sla: 14 },
+      blank_party: { date: 'blank_party_date', unit: 'blank_party_unit', tat: 'tat_blank_party', sla: 14 },
       collateral: { date: 'collateral_date', unit: 'collateral_unit', tat: 'tat_collateral', sla: 14 },
       special: { date: 'special_date', unit: 'special_unit', tat: 'tat_special', sla: 14 },
       tax_lien: { date: 'tax_lien_date', unit: 'tax_lien_unit', tat: 'tat_tax_lien', sla: 14 },

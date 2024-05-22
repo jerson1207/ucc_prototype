@@ -3,10 +3,12 @@
     <div class="modal-content modal-view">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Remaining Volume</h5>
-        <%= link_to download_excel_remaining_volume_dashboard_index_path(year: @year, month: @month), 
+
+        <%= link_to download_excel_dashboard_index_path(month: @month, year: @year, trademark: "Remaining Volume"), 
             class: "px-2 btn btn-primary" do %>
           <i class="fas fa-download"></i>
         <% end %>
+        
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body scroll">
@@ -21,22 +23,6 @@
               <th>Coverage Date-From</th>
               <th>Coverage Date-to</th>
               <th>Volume</th>
-              <!-- <th>Index Unit</th>
-              <th>Index Date</th>
-              <th>Blank Party-Unit</th>
-              <th>Blank Party-Date</th>
-              <th>Collateral-unit</th>
-              <th>Collateral-date</th>
-              <th>Special-Unit</th>
-              <th>Special-Date</th>
-              <th>Tax Lien-Unit</th>
-              <th>Tax Lien-Date</th>
-              <th>Frame Scanned-Unit</th>
-              <th>Frame Scanned-Date</th>
-              <th>MDB-Unit</th>
-              <th>MDB-Date</th>
-              <th>Office Product-Unit</th>
-              <th>Office Product-Date</th> -->
             </tr>
           </thead>
           <tbody>
@@ -50,22 +36,6 @@
                 <td><%= row['coverage_date_from'] %></td>
                 <td><%= row['coverage_date_to'] %></td>
                 <td><%= row['volume'] %></td>
-                <!-- <td><%= row['index_unit'] %></td>
-                <td><%= row['index_date'] %></td>
-                <td><%= row['blank_party_unit'] %></td>
-                <td><%= row['blank_party_date'] %></td>
-                <td><%= row['collateral_unit'] %></td>
-                <td><%= row['collateral_date'] %></td>
-                <td><%= row['special_unit'] %></td>
-                <td><%= row['special_date'] %></td>
-                <td><%= row['tax_lien_unit'] %></td>
-                <td><%= row['tax_lien_date'] %></td>
-                <td><%= row['frame_scanned_unit'] %></td>
-                <td><%= row['frame_scanned_date'] %></td>
-                <td><%= row['mdb_unit'] %></td>
-                <td><%= row['mdb_date'] %></td>
-                <td><%= row['office_product_unit'] %></td>
-                <td><%= row['office_product_date'] %></td> -->
               </tr>
             <% end %>
           </tbody>

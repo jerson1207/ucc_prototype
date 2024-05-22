@@ -4,8 +4,8 @@ class QcService
   attr_reader :month, :year
 
   def initialize(year, month)
-    @year = year
-    @month = month
+    @year = year.to_i
+    @month = month.to_i
   end
 
   def filename_lookup

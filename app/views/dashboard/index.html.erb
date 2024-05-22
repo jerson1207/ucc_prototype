@@ -113,7 +113,7 @@
           </div>
         </div>
 
-        <%= render 'transmitted_index_tbl', transmitted_data: data[:table] , title: title, modal_id: "transmitted_index_#{index}" %>
+        <%= render 'transmitted_index_tbl', transmitted_data: data[:table], title: title, modal_id: "transmitted_index_#{index}" %>
       <% end %>
     </div>
   </div>
@@ -125,7 +125,7 @@
       <p class="transmitted-title text-center">Index</p>
       <div class='transmitted-chart'>
         <div class="chart-container" data-controller="index-filing-chart" data-index-filing-chart-age-value="<%= @filing_data["index"][:chart].to_json %>">
-          <canvas id="index-filing"  height ="200"></canvas>
+          <canvas id="index-filing"  height ="180"></canvas>
         </div>
 
         <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#filing_modal_index">
@@ -141,7 +141,7 @@
         <div class="chart-container" data-controller="collateral-filing-chart" 
         data-collateral-filing-chart-age-value="<%= @filing_data["collateral"][:chart].to_json %>" 
         style="position: relative;  width:2000px;">
-          <canvas id="collateral-filing"  height ="200"></canvas>
+          <canvas id="collateral-filing"  height ="180"></canvas>
         </div>
         
         <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#filing_modal_collateral">
@@ -155,7 +155,7 @@
       <p class="transmitted-title text-center">Tax Lien</p>
       <div class='chart'>
         <div class="chart-container" data-controller="taxlien-filing-chart" data-taxlien-filing-chart-age-value="<%= @filing_data["tax_lien"][:chart].to_json %>">
-          <canvas id="taxlien-filing"  height ="200"></canvas>
+          <canvas id="taxlien-filing"  height ="180"></canvas>
         </div>
 
         <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#filing_modal_tax_lien">

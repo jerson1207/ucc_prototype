@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :dashboard, only: [:index] do
     collection do
-      get 'download_excel_remaining_volume' 
+      get 'download_excel', as: "download_excel"
     end
   end
   get 'transmitted/index', to: 'transmitted#index', as: 'transmitted_index_with_params'

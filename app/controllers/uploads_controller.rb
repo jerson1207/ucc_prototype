@@ -195,7 +195,7 @@ class UploadsController < ApplicationController
       qc_item = qc.qc_item.create(
         ucc_transmission_date: row[0],
         number_of_filing: row[1],
-        no_of_error_non_critcal: row[2],
+        no_of_error_critical: row[2],
         no_of_error_non_critcal: row[3],
         quality_score_critical: row[4],
         quality_score_non_critical: row[5],

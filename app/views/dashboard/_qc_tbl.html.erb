@@ -3,9 +3,9 @@
     <div class="modal-content modal-view">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Quality Score</h5>
-        <!-- <%= link_to download_excel_remaining_volume_dashboard_index_path(year: @year, month: @month), 
+        <%= link_to download_excel_dashboard_index_path(month: @month, year: @year, trademark: "QC"), 
             class: "px-2 btn btn-primary" do %>
-          <i class="fas fa-download"></i> -->
+          <i class="fas fa-download"></i>
         <% end %>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
@@ -13,18 +13,19 @@
         <table >
           <thead>
             <tr>
-          <th>UCC Transmission date</th>
-          <th>Number of Filings</th>
-          <th>Number of Errors (Critical)</th>
-          <th>Number of Errors (Non-Critical)</th>
-          <th>Qualty Score (Critical)</th>
-          <th>Qualty Score (Non-Critical)</th>
-          <th>Base Recs</th>
-          <th>Debtor/Secured Party</th>
-          <th>Collaterals</th>
-        </tr>
+              <th>UCC Transmission date</th>
+              <th>Number of Filings</th>
+              <th>Number of Errors (Critical)</th>
+              <th>Number of Errors (Non-Critical)</th>
+              <th>Qualty Score (Critical)</th>
+              <th>Qualty Score (Non-Critical)</th>
+              <th>Base Recs</th>
+              <th>Debtor/Secured Party</th>
+              <th>Collaterals</th>
+            </tr>
           </thead>
           <tbody>
+
             <% @qc_score[:table]&.each do |file| %>
               <tr>
                 <td><%= file['ucc_transmission_date'] %></td>
